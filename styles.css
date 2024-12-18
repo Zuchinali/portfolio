@@ -1,0 +1,129 @@
+/* Define o estilo geral do corpo */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #252525; /* Fundo preto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da viewport */
+}
+
+/* Estilo do container */
+.container {
+  position: relative;
+  width: calc(100% - 50px); /* 25px de margem em cada lado */
+  height: calc(100% - 50px); /* 25px de margem em cima e embaixo */
+  background-color: #fffbf3; /* Cor do container */
+  margin: auto; /* Centraliza o container */
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+.social-links {
+  position: absolute;
+  display: flex;
+  top: 10px; /* Ajuste conforme necessário */
+  right: 10px; /* Posiciona o elemento na borda direita do container */
+  gap: 10px; /* Espaçamento entre os ícones */
+  justify-content: center;
+  z-index: 10; /* Garante que os ícones fiquem acima de outros elementos */
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 30px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #0077b5; /* Cor para LinkedIn */
+}
+
+.social-links a:first-child:hover {
+  color: #000; /* Cor para GitHub */
+}
+
+.social-links i {
+  margin-right: 8px;
+}
+
+/* Estilo do GIF */
+.gif {
+  position: absolute;
+  top: 15px; /* Ajuste conforme necessário */
+  right: 15px; /* Alinha o GIF à direita do container */
+  width: auto; /* Mantém a proporção da largura */
+  height: 100%; /* Acompanha a altura do container */
+  max-height: calc(100% - 30px); /* Garante que não ultrapasse o container */
+  object-fit: contain; /* Ajusta o conteúdo para caber no espaço disponível */
+  z-index: 1; /* Garante que o GIF fique abaixo dos ícones */
+}
+
+/* Estilo do título */
+.title {
+  position: absolute;
+  top: 45px; /* Posição Y */
+  left: 77px; /* Posição X */
+  font-size: calc(2vw + 10px); /* Tamanho adaptável ao tamanho da tela */
+  font-family: "Fine Style", sans-serif; /* Fonte personalizada */
+  color: #000; /* Cor do texto */
+  margin: 0;
+}
+
+/* Estilo do subtítulo */
+.subtitle {
+  position: absolute;
+  top: 105px; /* Ajuste a posição Y conforme necessário */
+  left: 80px; /* Alinha com o título */
+  font-size: calc(0.5vw + 10px); /* Tamanho adaptável ao tamanho da tela */
+  font-family: "Signika SC", sans-serif; /* Fonte personalizada */
+  color: #000; /* Cor do texto */
+  margin: 0;
+}
+
+/* Estilo dos links */
+a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #000; /* Cor do texto */
+}
+
+/* Estilo da palavra "Início" */
+.inicio {
+  position: absolute;
+  top: 240px; /* Posição Y */
+  left: 86px; /* Posição X */
+  font-size: calc(1vw + 8px); /* Tamanho adaptável ao tamanho da tela */
+  font-family: "Signika SC", sans-serif; /* Fonte personalizada */
+  margin: 0;
+}
+
+/* Estilo da palavra "Projetos" */
+.projetos {
+  position: absolute;
+  top: 300px; /* Posição Y */
+  left: 86px; /* Posição X */
+  font-size: calc(1vw + 8px); /* Tamanho adaptável ao tamanho da tela */
+  font-family: "Signika SC", sans-serif; /* Fonte personalizada */
+  margin: 0;
+}
+
+/* Estilo da palavra "Sobre Mim" */
+.sobre-mim {
+  position: absolute;
+  top: 360px; /* Posição Y */
+  left: 86px; /* Posição X */
+  font-size: calc(1vw + 8px); /* Tamanho adaptável ao tamanho da tela */
+  font-family: "Signika SC", sans-serif; /* Fonte personalizada */
+  margin: 0;
+}
+
+/* Estilo da palavra "Contato" */
+.contato {
+  position: absolute;
+  top: 420px; /* Posição Y */
+  left: 86px; /* Posição X */
+  font-size: calc(1vw + 8px); /* Tamanho adaptável ao tamanho da tela */
+  font-family: "Signika SC", sans-serif; /* Fonte personalizada */
+  margin: 0;
+}
