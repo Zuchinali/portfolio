@@ -17,6 +17,11 @@ body {
   background-color: #fffbf3; /* Cor do container */
   margin: auto; /* Centraliza o container */
   box-sizing: border-box; /* Inclui padding e border no tamanho total */
+  background-image: url("elementos/cod_mov.gif"); /* Define o GIF como fundo */
+  background-size: contain; /* Ajusta o GIF para caber no container */
+  background-position: right; /* Centraliza o GIF no container */
+  background-repeat: no-repeat; /* Evita repetição do GIF */
+  overflow: hidden; /* Garante que o conteúdo não ultrapasse o container */
 }
 
 .social-links {
@@ -51,13 +56,15 @@ body {
 /* Estilo do GIF */
 .gif {
   position: absolute;
-  top: 15px; /* Ajuste conforme necessário */
-  right: 15px; /* Alinha o GIF à direita do container */
+  top: 50%; /* Centraliza verticalmente */
+  right: 0; /* Alinha o GIF à direita do container */
+  transform: translateY(-50%); /* Ajusta para centralização exata */
   width: auto; /* Mantém a proporção da largura */
   height: 100%; /* Acompanha a altura do container */
-  max-height: calc(100% - 30px); /* Garante que não ultrapasse o container */
+  max-height: 100%; /* Garante que o GIF não ultrapasse a altura do container */
+  max-width: 50%; /* Limita a largura do GIF a 50% do container */
   object-fit: contain; /* Ajusta o conteúdo para caber no espaço disponível */
-  z-index: 1; /* Garante que o GIF fique abaixo dos ícones */
+  z-index: 1; /* Garante que o GIF fique abaixo de outros elementos */
 }
 
 /* Estilo do título */
