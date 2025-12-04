@@ -4,7 +4,9 @@
     --cor-primaria: #d77a00; /* Cor de destaque (botão e detalhes) */
     --cor-texto: #FFFFFF;
     --cor-secundaria: #fafafa; /* Cor para texto secundário/parágrafo */
+    --cor-card-fundo: #2a2a2a; /* Fundo para os cards do carrossel/lista */
     --fonte-principal: 'Arial', sans-serif; /* Use sua fonte real aqui */
+    --max-largura-conteudo: 800px; /* Largura máxima para o texto principal de detalhe */
 }
 
 * {
@@ -35,7 +37,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%; /* Espaçamento responsivo */
+    padding: 1.5rem 5%;
 }
 
 .cabecalho__logo {
@@ -45,7 +47,6 @@ a:hover {
 }
 
 .cabecalho__menu {
-    /* Esconde o menu para mobile por padrão (Mobile-First) */
     display: none; 
 }
 
@@ -56,15 +57,11 @@ a:hover {
 }
 
 .cabecalho__lista a {
-    /* Estilos base para os links do menu */
     font-size: 1rem;
     color: var(--cor-secundaria);
-    /* Adiciona Transições para animações suaves */
     transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
-    
-    /* Propriedades para o efeito de sublinhado animado (opcional) */
     position: relative;
-    padding-bottom: 5px; /* Espaço para o sublinhado */
+    padding-bottom: 5px;
 }
 
 /* Efeito de Sublinhado Animado (High Code) */
@@ -79,48 +76,46 @@ a:hover {
     transition: width 0.3s ease-out;
 }
 
-/* Efeito Hover (Mouse-over) */
 .cabecalho__lista a:hover {
-    color: var(--cor-primaria); /* Cor principal no hover */
+    color: var(--cor-primaria);
 }
 
 .cabecalho__lista a:hover::after {
-    width: 100%; /* Estende o sublinhado */
+    width: 100%;
 }
 
-/* Efeito Active (Click/Ativação) - Fornece feedback imediato */
 .cabecalho__lista a:active {
-    color: var(--cor-texto); /* Mantém branco para alto contraste */
-    transform: scale(0.95); /* Leve encolhimento para simular "pressionar" */
-    text-shadow: 0 0 5px rgba(215, 122, 0, 0.7); /* Efeito de brilho */
+    color: var(--cor-texto);
+    transform: scale(0.95);
+    text-shadow: 0 0 5px rgba(215, 122, 0, 0.7);
 }
 
 
-/* 2. Seção Hero (Conteúdo Principal) */
+/* 2. Seção Hero (Conteúdo Principal - Mantido do index.html) */
 .hero {
-    min-height: calc(100vh - 5rem); /* Ocupa a altura restante da viewport */
+    min-height: calc(100vh - 5rem);
     display: flex;
-    flex-direction: column; /* Mobile: empilha os itens (conteúdo e decoração) */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 3rem 5%;
-    text-align: center; /* Centraliza o texto para Mobile */
+    text-align: center;
 }
 
 .hero__conteudo {
     max-width: 900px;
-    margin-bottom: 3rem; /* Espaço antes da decoração no mobile */
+    margin-bottom: 3rem;
 }
 
 .hero__titulo {
-    font-size: 2.5rem; /* Tamanho Mobile */
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
 
 .hero__destaque {
-    color: var(--cor-texto); /* Mantém branco, só para semântica */
+    color: var(--cor-texto);
 }
 
 .hero__texto {
@@ -139,27 +134,26 @@ a:hover {
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
-    /* Adiciona transição para o botão também */
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; 
 }
 
 /* Efeito Hover no Botão */
 .hero__botao:hover {
-    background-color: #834a00; /* Cor um pouco mais escura no hover */
-    box-shadow: 0 0 15px rgba(215, 122, 0, 0.5); /* Sombra suave para destaque */
+    background-color: #834a00;
+    box-shadow: 0 0 15px rgba(215, 122, 0, 0.5);
 }
 
 /* Efeito Active no Botão */
 .hero__botao:active {
-    transform: translateY(2px); /* Efeito de afundamento sutil */
+    transform: translateY(2px);
     box-shadow: 0 0 5px rgba(215, 122, 0, 0.7);
 }
 
 
-/* 3. Decoração Lateral (Simulação da Linha com Pontos) */
+/* 3. Decoração Lateral (Simulação da Linha com Pontos - Mantido do index.html) */
 .hero__decoracao {
     display: flex;
-    flex-direction: row; /* Mobile: pode ser na horizontal abaixo do conteúdo */
+    flex-direction: row;
     align-items: center;
     gap: 1rem;
     opacity: 0.5;
@@ -180,7 +174,390 @@ a:hover {
 }
 
 
-/* 4. Ponto de Quebra (Media Query) para Desktop/Tablet */
+/* ---------------------------------------------------- */
+/* 4. SEÇÃO PORTFÓLIO 1 (CARROSSEL CSS) */
+/* ---------------------------------------------------- */
+.portfolio {
+    padding: 5rem 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio__titulo {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    padding: 0 5%;
+}
+
+.carrossel__lista {
+    list-style: none;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 0;
+    gap: 1.5rem;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carrossel__lista::-webkit-scrollbar {
+    display: none;
+}
+
+.carrossel__item {
+    scroll-snap-align: center;
+    flex: 0 0 80vw;
+    max-width: 350px;
+    margin-left: 10vw;
+}
+
+.carrossel__item:last-child {
+    margin-right: 10vw;
+}
+
+/* Estilos de Card (Projeto) - REUTILIZADOS PELO CARROSSEL E PELA LISTA */
+.projeto {
+    background-color: var(--cor-card-fundo);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+
+.projeto__imagem {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: #3f3f3f; 
+}
+
+.projeto__titulo {
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+}
+
+.projeto__descricao {
+    color: var(--cor-secundaria);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.projeto__tags {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.projeto__link {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.projeto__link:hover {
+    background-color: #834a00;
+}
+
+
+/* ---------------------------------------------------- */
+/* 5. SEÇÃO PORTFÓLIO 2 (LISTA DE PROJETOS - GRID RESPONSIVO) */
+/* ---------------------------------------------------- */
+.portfolio-lista {
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.lista-projetos__titulo {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.lista-projetos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.lista-projetos__item {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ---------------------------------------------------- */
+/* 6. SEÇÃO DETALHE DO PROJETO */
+/* ---------------------------------------------------- */
+
+.container-projeto {
+    padding: 3rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.projeto-hero {
+    width: 100%;
+    max-width: var(--max-largura-conteudo);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.projeto-hero__titulo {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto);
+}
+
+.projeto-hero__subtitulo {
+    font-size: 1.2rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 2rem;
+}
+
+.projeto-hero__imagem {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.projeto-resumo {
+    width: 100%;
+    max-width: var(--max-largura-conteudo);
+    margin-bottom: 3rem;
+}
+
+.projeto-metadados {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem;
+    background-color: var(--cor-card-fundo);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.metadado-item {
+    display: contents; 
+}
+
+.metadado-chave {
+    font-weight: bold;
+    color: var(--cor-primaria);
+    grid-column: 1 / 2;
+}
+
+.metadado-valor {
+    color: var(--cor-secundaria);
+    grid-column: 2 / 3;
+}
+
+.projeto-introducao p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+}
+
+.projeto-detalhes {
+    width: 100%;
+    max-width: var(--max-largura-conteudo);
+}
+
+.detalhe-passo {
+    margin-bottom: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detalhe-passo__titulo {
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+.detalhe-passo p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--cor-secundaria);
+}
+
+.lista-ordenada,
+.lista-nao-ordenada {
+    list-style-position: inside;
+    margin: 1rem 0 1rem 1rem;
+    color: var(--cor-secundaria);
+}
+
+.lista-ordenada li,
+.lista-nao-ordenada li {
+    margin-bottom: 0.5rem;
+}
+
+.detalhe-conclusao {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* ---------------------------------------------------- */
+/* 7. SEÇÃO SOBRE (ABOUT) */
+/* ---------------------------------------------------- */
+.about {
+    padding: 5rem 5%; /* Padding padrão */
+    text-align: center; /* Centraliza no mobile */
+}
+
+.about__conteudo {
+    display: flex;
+    flex-direction: column; /* Mobile-First: Texto em cima, Imagem embaixo */
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about__titulo {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* Linha de destaque sob o título */
+.about__titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    border-radius: 2px;
+}
+
+.about__destaque {
+    color: var(--cor-primaria);
+}
+
+.about__resumo,
+.about__detalhes {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--cor-secundaria);
+    margin-bottom: 1.5rem;
+    text-align: left; /* Alinhamento de texto mais natural */
+}
+
+/* Lista de Detalhes do Perfil (Nome, Idade, etc.) */
+.about__lista-detalhes {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar em telas pequenas */
+    gap: 1rem;
+    margin: 2rem 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+.about__lista-detalhes li {
+    flex-basis: 100%; /* Ocupa a largura total no mobile */
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.lista-detalhes__chave {
+    color: var(--cor-primaria);
+    width: 100px; /* Largura fixa para alinhamento */
+    display: inline-block;
+}
+
+.lista-detalhes__valor {
+    color: var(--cor-texto);
+    font-weight: 400;
+}
+
+.about__botoes {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+/* Imagem e Moldura */
+.about__imagem {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Limite a largura da imagem */
+    margin: 0 auto;
+    order: -1; /* Coloca a imagem antes do texto no Mobile (opcional) */
+}
+
+.perfil__foto {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Moldura decorativa para o efeito visual */
+.perfil__moldura {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--cor-primaria);
+    border-radius: 8px;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.about__imagem:hover .perfil__moldura {
+    transform: translate(-10px, 10px); /* Efeito sutil no hover */
+}
+
+
+/* 8. Ponto de Quebra (Media Query) para Desktop/Tablet */
 @media (min-width: 768px) {
     /* Navegação */
     .cabecalho {
@@ -188,44 +565,129 @@ a:hover {
     }
     
     .cabecalho__menu {
-        display: block; /* Mostra o menu no desktop */
+        display: block;
     }
 
     /* Hero Section - Desktop Layout */
     .hero {
-        flex-direction: row; /* Desktop: lado a lado */
+        flex-direction: row;
         justify-content: space-between;
-        text-align: left; /* Alinha o texto à esquerda */
+        text-align: left;
         gap: 3rem;
         padding: 5rem 10%;
     }
     
     .hero__conteudo {
-        width: 65%; /* Ocupa mais espaço */
+        width: 65%;
         margin-bottom: 0;
     }
-
+    
     .hero__titulo {
-        font-size: 3.5rem; /* Aumenta o tamanho do título no desktop */
+        font-size: 3.5rem;
     }
     
-    /* Decoração - Volta para a Vertical no Desktop */
     .hero__decoracao {
         flex-direction: column;
-        width: 50px; /* Largura mínima para o elemento */
-        align-self: stretch; /* Estica o container */
+        width: 50px;
+        align-self: stretch;
         justify-content: center;
         gap: 0;
     }
     
     .decoracao__linha {
-        height: 60px; /* Aumenta o tamanho da linha */
-        width: 1px; /* Linha vertical */
+        height: 60px;
+        width: 1px;
     }
     
-    .hero__decoracao .decoracao__circulo {
-        /* Garante que os pontos permaneçam como círculos */
-        width: 12px;
-        height: 12px;
+    /* Melhoria do Carrossel para Desktop */
+    .portfolio__titulo {
+        padding: 0 10%;
+    }
+    
+    .carrossel__lista {
+        gap: 2.5rem;
+    }
+
+    .carrossel__item {
+        flex: 0 0 350px;
+        margin-left: calc(10% - 1.5rem);
+    }
+
+    .carrossel__item:last-child {
+        margin-right: calc(10% - 1.5rem);
+    }
+    
+    /* Lista de Projetos - Layout Grid no Desktop */
+    .portfolio-lista {
+        padding: 3rem 10%;
+    }
+    
+    .lista-projetos {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    /* Layout Desktop para a Página de Detalhe */
+    .container-projeto {
+        padding: 5rem 10%;
+    }
+    
+    .projeto-hero__titulo {
+        font-size: 3.5rem;
+    }
+    
+    .projeto-metadados {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 2rem;
+    }
+
+    .metadado-chave {
+        grid-column: span 1;
+        font-size: 0.9rem;
+    }
+
+    .metadado-valor {
+        grid-column: span 1;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    
+    .metadado-item {
+        display: block; 
+    }
+    
+    /* Layout Desktop para a Seção Sobre */
+    .about {
+        text-align: left;
+        padding: 5rem 10%;
+    }
+    
+    .about__conteudo {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+        gap: 5rem;
+    }
+    
+    .about__titulo {
+        text-align: left;
+    }
+    
+    .about__titulo::after {
+        left: 0;
+        transform: none;
+    }
+
+    .about__lista-detalhes li {
+        flex-basis: 45%;
+    }
+    
+    .about__imagem {
+        order: 0;
+        margin: 0;
+    }
+
+    .perfil__foto {
+        max-width: 100%;
     }
 }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes de Projeto - Zuchinali</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/image/logoz.png">
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="https://www.linkedin.com/in/gustavo-zuchinali-b1960716a/" target="_blank" class="cabecalho__logo">Zuchinali</a>
+        <nav class="cabecalho__menu">
+            <ul class="cabecalho__lista">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="#services">Services</a></li> -->
+                <li><a href="about.html">About</a></li>
+                <!-- <li><a href="#skills">Skills</a></li> -->
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-projeto">
+        <section class="projeto-hero" role="banner">
+            <h1 class="projeto-hero__titulo">Homelab - Servidor MySQL</h1>
+            <p class="projeto-hero__subtitulo">Database local para estudos e pesquisas!</p>
+            
+            <img 
+                src="image/homelab_capa.png" 
+                alt="Imagem ilustrativa" 
+                class="projeto-hero__imagem"
+            >
+        </section>
+
+        <section class="projeto-resumo">
+            <!--<h2 class="sr-only">Resumo do Projeto</h2> -->
+            
+            <dl class="projeto-metadados">
+                <div class="metadado-item">
+                    <dt class="metadado-chave">Ferramentas:</dt>
+                    <dd class="metadado-valor">Linux - Ubuntu, Docker, MySQL</dd>
+                </div>
+                <div class="metadado-item">
+                    <dt class="metadado-chave">Função:</dt>
+                    <dd class="metadado-valor">Database local</dd>
+                </div>
+                <div class="metadado-item">
+                    <dt class="metadado-chave">Duração:</dt>
+                    <dd class="metadado-valor">5 horas</dd>
+                </div>
+                <!--<div class="metadado-item">
+                    <dt class="metadado-chave">Cliente:</dt>
+                    <dd class="metadado-valor">Grande Rede de Varejo</dd>
+                </div>-->
+            </dl>
+            
+            <div class="projeto-introducao">
+                <p>Implementei um servidor local MySQL como parte de um Homelab pessoal, com o propósito central de me desafiar a explorar e dominar o sistema operacional Linux. Este ambiente atua como uma plataforma dedicada para experimentação, onde posso praticar a linguagem SQL, modelagem de dados, gerenciar conjuntos de dados (próprios e fictícios) e o docker. A autonomia desse setup permite aprofundar e fortalecer meus conhecimentos em estatística e análise de dados por meio de estudos práticos e contínuos.</p>
+            </div>
+        </section>
+
+        <section class="projeto-detalhes">
+            
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">O Desafio</h3>
+                <p>O desafio central era transformar um notebook antigo com Linux Ubuntu em um servidor de banco de dados eficiente para desenvolvimento e análise de dados, utilizando o Docker para garantir isolamento e portabilidade.
+                </p>
+                
+                <p>O objetivo principal era criar um ambiente de Data Engineering local, onde se pudesse:
+                    <ul class="lista-nao-ordenada">
+                        <li>Hospedar um banco de dados MySQL de forma persistente.</li>
+                        <li>Garantir a acessibilidade do servidor a partir de outros computadores da rede (como um PC Windows).</li>
+                        <li>Implementar uma interface de gerenciamento simples para o ambiente Docker.</li>
+                    </ul>
+                </p>
+            </article>
+
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">Solução e Metodologia</h3>
+                <p>A solução foi implementada através de uma metodologia rigorosa dividida em quatro fases principais, com foco na estabilidade do sistema operacional, segurança da rede e modularidade do Docker.</p>
+                
+                <ol class="lista-ordenada">
+                    <li>Preparação do SO<br>
+                        Objetivo: Garantir a estabilidade e o acesso remoto.
+                    </li>
+                    <li>Instalação do Docker<br>
+                        Objetivo: Montar a plataforma de virtualização utilizando Docker.
+                    </li>
+                    <li>Implantação do SGBD<br>
+                        Objetivo: Colocar o banco de dados principal em produção (MySQL 8.0 com o Docker).
+                    </li>
+                    <li>Gerenciamento e Acesso<br>
+                        Objetivo: Finalizar a usabilidade do ambiente para poder utilizar remotamente em outro computador e conectar com Power BI, scripts python e Dbeaver.
+                    </li>
+                </ol>
+                
+                <p>Dois obstáculos técnicos foram cruciais para o sucesso do projeto:</p>
+
+                <ol class="lista-ordenada">
+                    <li>Problemas de Conectividade</li>
+                    <li>Autenticação do MySQL 8.0</li>
+                </ol>
+            </article>
+
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">Resultados Chave</h3>
+                <p>O projeto resultou em um ambiente totalmente funcional, validado em dois pilares principais:</p>
+                <ul class="lista-nao-ordenada">
+                    <li>Servidor Docker Funcional</li>
+                    <li>Acesso e Estrutura de Dados</li>
+                </ul>
+            </article>
+            
+            <div class="detalhe-conclusao">
+                <a href="https://www.linkedin.com/posts/gustavo-zuchinali-b1960716a_python-linux-homelab-activity-7393101971433459712-IEB4?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChQHYUB47OoQsjaNBn3pmIXxbeI9L1BTIM" target="_blank" class="hero__botao">Veja a publicação no linkedin</a>
+            </div>
+            
+        </section>
+        
+    </main>
+    </body>
+</html>
