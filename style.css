@@ -691,3 +691,116 @@ a:hover {
         max-width: 100%;
     }
 }
+
+/* ---------------------------------------------------- */
+/* 9. SEÇÃO CONTATO (contact.html) - Atualizada para Lista Única */
+/* ---------------------------------------------------- */
+
+.container-contato {
+    padding: 5rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: calc(100vh - 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Modificador para o layout de lista única (centralizado e sem flex-direction: row no desktop) */
+.container-contato--lista-unica {
+    align-items: center;
+    text-align: center;
+}
+
+.contato__titulo {
+    font-size: 2.5rem;
+    color: var(--cor-texto);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    max-width: var(--max-largura-conteudo); /* Limita a largura do título/subtítulo */
+}
+
+.contato__subtitulo {
+    font-size: 1rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: var(--max-largura-conteudo);
+}
+
+/* Informações de Contato Adicionais (SECTION agora) */
+.contato-info {
+    background-color: var(--cor-card-fundo);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 550px; /* Limita a largura da caixa de links */
+}
+
+/* Título secundário (h2) escondido, mas não é o h1 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.contato-dl {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contato-dl__item {
+    padding: 1rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.contato-dl__item:last-child {
+    border-bottom: none;
+}
+
+.contato-dl__chave {
+    font-weight: bold;
+    color: var(--cor-secundaria);
+    margin-bottom: 0.2rem;
+    display: flex; /* Usar flexbox para alinhar ícone e texto */
+    align-items: center;
+}
+
+.contato-dl__icone {
+    font-size: 1.2rem; /* Tamanho do ícone/emoji */
+    margin-right: 0.75rem;
+    color: var(--cor-primaria); /* Cor de destaque (opcional, se fosse um SVG) */
+}
+
+.contato-dl__valor a {
+    color: var(--cor-texto);
+    font-size: 1.1rem;
+    display: block;
+    margin-left: 2rem; /* Ajusta o alinhamento do valor */
+    text-align: left;
+}
+
+.contato-dl__valor a:hover {
+    color: var(--cor-primaria);
+}
+
+
+/* Desktop Layout - Reconfiguração */
+@media (min-width: 768px) {
+    
+    .container-contato--lista-unica {
+        padding: 5rem 10%;
+    }
+    
+    .contato__titulo {
+        font-size: 3.5rem;
+    }
+}
