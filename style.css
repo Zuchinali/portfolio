@@ -1,4 +1,7 @@
-/* Variáveis e Reset Básico */
+/* ==================================================== */
+/* 1. VARIÁVEIS, RESET E ESTILOS GLOBAIS (BASE) */
+/* ==================================================== */
+
 :root {
     --cor-fundo: #1c1c1c; /* Cor de fundo escura, similar à imagem */
     --cor-primaria: #d77a00; /* Cor de destaque (botão e detalhes) */
@@ -9,6 +12,7 @@
     --max-largura-conteudo: 800px; /* Largura máxima para o texto principal de detalhe */
 }
 
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +26,7 @@ body {
     min-height: 100vh;
 }
 
+/* Estilos de Link Comuns */
 a {
     text-decoration: none;
     color: inherit;
@@ -32,7 +37,22 @@ a:hover {
     color: var(--cor-primaria);
 }
 
-/* 1. Cabeçalho (Header) */
+/* Classe de Acessibilidade (Screen Reader Only) - Usada em todas as páginas */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ==================================================== */
+/* 2. CABEÇALHO E NAVEGAÇÃO (Comum a todas as páginas) */
+/* ==================================================== */
 .cabecalho {
     display: flex;
     justify-content: space-between;
@@ -64,7 +84,7 @@ a:hover {
     padding-bottom: 5px;
 }
 
-/* Efeito de Sublinhado Animado (High Code) */
+/* Efeito de Sublinhado Animado */
 .cabecalho__lista a::after {
     content: '';
     position: absolute;
@@ -91,7 +111,9 @@ a:hover {
 }
 
 
-/* 2. Seção Hero (Conteúdo Principal - Mantido do index.html) */
+/* ==================================================== */
+/* 3. HOME / SEÇÃO HERO (index.html) */
+/* ==================================================== */
 .hero {
     min-height: calc(100vh - 5rem);
     display: flex;
@@ -115,7 +137,7 @@ a:hover {
 }
 
 .hero__destaque {
-    color: var(--cor-texto);
+    color: var(--cor-texto); /* Mantido para ser o destaque principal */
 }
 
 .hero__texto {
@@ -126,6 +148,7 @@ a:hover {
     opacity: 0.8;
 }
 
+/* Estilo do Botão (Reutilizado em todas as páginas) */
 .hero__botao {
     display: inline-block;
     background-color: var(--cor-primaria);
@@ -137,20 +160,18 @@ a:hover {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; 
 }
 
-/* Efeito Hover no Botão */
 .hero__botao:hover {
     background-color: #834a00;
     box-shadow: 0 0 15px rgba(215, 122, 0, 0.5);
 }
 
-/* Efeito Active no Botão */
 .hero__botao:active {
     transform: translateY(2px);
     box-shadow: 0 0 5px rgba(215, 122, 0, 0.7);
 }
 
 
-/* 3. Decoração Lateral (Simulação da Linha com Pontos - Mantido do index.html) */
+/* Decoração Lateral (Simulação da Linha com Pontos) */
 .hero__decoracao {
     display: flex;
     flex-direction: row;
@@ -174,51 +195,125 @@ a:hover {
 }
 
 
-/* ---------------------------------------------------- */
-/* 4. SEÇÃO PORTFÓLIO 1 (CARROSSEL CSS) */
-/* ---------------------------------------------------- */
-.portfolio {
-    padding: 5rem 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ==================================================== */
+/* 4. SEÇÃO SOBRE (about.html) */
+/* ==================================================== */
+.about {
+    padding: 5rem 5%;
+    text-align: center;
 }
 
-.portfolio__titulo {
+.about__conteudo {
+    display: flex;
+    flex-direction: column; 
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about__info {
+    text-align: left;
+}
+
+.about__titulo {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-align: center; /* Centralizado no Mobile */
+}
+
+/* Linha de destaque sob o título */
+.about__titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    border-radius: 2px;
+}
+
+.about__destaque {
+    color: var(--cor-primaria);
+}
+
+.about__resumo,
+.about__detalhes {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--cor-secundaria);
+    margin-bottom: 1.5rem;
+    text-align: left; 
+}
+
+/* Imagem e Moldura */
+.about__imagem {
+    position: relative;
+    width: 100%;
+    max-width: 300px; 
+    margin: 0 auto;
+    order: -1; 
+}
+
+.perfil__foto {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.perfil__moldura {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--cor-primaria);
+    border-radius: 8px;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.about__imagem:hover .perfil__moldura {
+    transform: translate(-10px, 10px); 
+}
+
+.about__botoes {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+/* ==================================================== */
+/* 5. LISTA DE PROJETOS (portfolio.html) */
+/* ==================================================== */
+.portfolio-lista {
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.lista-projetos__titulo {
     font-size: 2rem;
     margin-bottom: 2.5rem;
-    padding: 0 5%;
 }
 
-.carrossel__lista {
+.lista-projetos {
     list-style: none;
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    padding: 1rem 0;
-    gap: 1.5rem;
-    width: 100%;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
 
-.carrossel__lista::-webkit-scrollbar {
-    display: none;
+.lista-projetos__item {
+    margin: 0;
+    padding: 0;
 }
 
-.carrossel__item {
-    scroll-snap-align: center;
-    flex: 0 0 80vw;
-    max-width: 350px;
-    margin-left: 10vw;
-}
-
-.carrossel__item:last-child {
-    margin-right: 10vw;
-}
-
-/* Estilos de Card (Projeto) - REUTILIZADOS PELO CARROSSEL E PELA LISTA */
+/* Estilos de Card (Projeto) - Reutilizados pelo carrossel/lista */
 .projeto {
     background-color: var(--cor-card-fundo);
     padding: 1.5rem;
@@ -284,33 +379,7 @@ a:hover {
 
 
 /* ---------------------------------------------------- */
-/* 5. SEÇÃO PORTFÓLIO 2 (LISTA DE PROJETOS - GRID RESPONSIVO) */
-/* ---------------------------------------------------- */
-.portfolio-lista {
-    padding: 3rem 5%;
-    text-align: center;
-}
-
-.lista-projetos__titulo {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-}
-
-.lista-projetos {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
-.lista-projetos__item {
-    margin: 0;
-    padding: 0;
-}
-
-
-/* ---------------------------------------------------- */
-/* 6. SEÇÃO DETALHE DO PROJETO */
+/* 6. DETALHE DO PROJETO (projeto_homelab.html) */
 /* ---------------------------------------------------- */
 
 .container-projeto {
@@ -318,18 +387,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
 }
 
 .projeto-hero {
@@ -367,6 +424,7 @@ a:hover {
     margin-bottom: 3rem;
 }
 
+/* Lista de Descrição (DL) para Metadados */
 .projeto-metadados {
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -378,7 +436,7 @@ a:hover {
 }
 
 .metadado-item {
-    display: contents; 
+    display: contents; /* Permite que os DT e DD sejam filhos diretos do grid */
 }
 
 .metadado-chave {
@@ -403,6 +461,7 @@ a:hover {
     max-width: var(--max-largura-conteudo);
 }
 
+/* Estilo para Article/Section dos Passos */
 .detalhe-passo {
     margin-bottom: 2.5rem;
     padding-top: 1rem;
@@ -438,126 +497,93 @@ a:hover {
     margin-top: 3rem;
 }
 
-/* ---------------------------------------------------- */
-/* 7. SEÇÃO SOBRE (ABOUT) */
-/* ---------------------------------------------------- */
-.about {
-    padding: 5rem 5%; /* Padding padrão */
-    text-align: center; /* Centraliza no mobile */
-}
 
-.about__conteudo {
+/* ==================================================== */
+/* 7. CONTATO (contact.html) */
+/* ==================================================== */
+
+.container-contato {
+    padding: 5rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: calc(100vh - 5rem);
     display: flex;
-    flex-direction: column; /* Mobile-First: Texto em cima, Imagem embaixo */
+    flex-direction: column;
     gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    align-items: center; /* Centraliza a lista de contato */
+    text-align: center;
 }
 
-.about__titulo {
+.contato__titulo {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-/* Linha de destaque sob o título */
-.about__titulo::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--cor-primaria);
-    border-radius: 2px;
-}
-
-.about__destaque {
-    color: var(--cor-primaria);
-}
-
-.about__resumo,
-.about__detalhes {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--cor-secundaria);
-    margin-bottom: 1.5rem;
-    text-align: left; /* Alinhamento de texto mais natural */
-}
-
-/* Lista de Detalhes do Perfil (Nome, Idade, etc.) */
-.about__lista-detalhes {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap; /* Permite quebrar em telas pequenas */
-    gap: 1rem;
-    margin: 2rem 0;
-    padding-left: 0;
-    text-align: left;
-}
-
-.about__lista-detalhes li {
-    flex-basis: 100%; /* Ocupa a largura total no mobile */
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-}
-
-.lista-detalhes__chave {
-    color: var(--cor-primaria);
-    width: 100px; /* Largura fixa para alinhamento */
-    display: inline-block;
-}
-
-.lista-detalhes__valor {
     color: var(--cor-texto);
-    font-weight: 400;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    max-width: var(--max-largura-conteudo); 
 }
 
-.about__botoes {
+.contato__subtitulo {
+    font-size: 1rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: var(--max-largura-conteudo);
+}
+
+.contato-info {
+    background-color: var(--cor-card-fundo);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 550px; 
+}
+
+.contato-dl {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contato-dl__item {
+    padding: 1rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.contato-dl__item:last-child {
+    border-bottom: none;
+}
+
+.contato-dl__chave {
+    font-weight: bold;
+    color: var(--cor-secundaria);
+    margin-bottom: 0.2rem;
+    display: flex; 
+    align-items: center;
+}
+
+.contato-dl__icone {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+    color: var(--cor-primaria);
+}
+
+.contato-dl__valor a {
+    color: var(--cor-texto);
+    font-size: 1.1rem;
+    display: block;
+    margin-left: 2rem; 
     text-align: left;
-    margin-top: 2rem;
 }
 
-/* Imagem e Moldura */
-.about__imagem {
-    position: relative;
-    width: 100%;
-    max-width: 300px; /* Limite a largura da imagem */
-    margin: 0 auto;
-    order: -1; /* Coloca a imagem antes do texto no Mobile (opcional) */
-}
-
-.perfil__foto {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    position: relative;
-    z-index: 2;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Moldura decorativa para o efeito visual */
-.perfil__moldura {
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    border: 3px solid var(--cor-primaria);
-    border-radius: 8px;
-    z-index: 1;
-    transition: transform 0.3s ease;
-}
-
-.about__imagem:hover .perfil__moldura {
-    transform: translate(-10px, 10px); /* Efeito sutil no hover */
+.contato-dl__valor a:hover {
+    color: var(--cor-primaria);
 }
 
 
-/* 8. Ponto de Quebra (Media Query) para Desktop/Tablet */
+/* ==================================================== */
+/* 8. MEDIA QUERIES (Ponto de Quebra para Desktop/Tablet) */
+/* ==================================================== */
 @media (min-width: 768px) {
     /* Navegação */
     .cabecalho {
@@ -599,30 +625,13 @@ a:hover {
         width: 1px;
     }
     
-    /* Melhoria do Carrossel para Desktop */
-    .portfolio__titulo {
-        padding: 0 10%;
-    }
-    
-    .carrossel__lista {
-        gap: 2.5rem;
-    }
-
-    .carrossel__item {
-        flex: 0 0 350px;
-        margin-left: calc(10% - 1.5rem);
-    }
-
-    .carrossel__item:last-child {
-        margin-right: calc(10% - 1.5rem);
-    }
-    
     /* Lista de Projetos - Layout Grid no Desktop */
     .portfolio-lista {
         padding: 3rem 10%;
     }
     
     .lista-projetos {
+        /* CSS Grid usando repeat(auto-fit, minmax) para responsividade automática [cite: 88] */
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2.5rem;
     }
@@ -636,11 +645,17 @@ a:hover {
         font-size: 3.5rem;
     }
     
+    /* Layout Metadados (4 colunas no desktop) */
     .projeto-metadados {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         padding: 2rem;
     }
 
+    .metadado-item {
+        display: block;
+        grid-column: span 1;
+    }
+    
     .metadado-chave {
         grid-column: span 1;
         font-size: 0.9rem;
@@ -650,10 +665,6 @@ a:hover {
         grid-column: span 1;
         font-size: 1.1rem;
         font-weight: bold;
-    }
-    
-    .metadado-item {
-        display: block; 
     }
     
     /* Layout Desktop para a Seção Sobre */
@@ -678,128 +689,12 @@ a:hover {
         transform: none;
     }
 
-    .about__lista-detalhes li {
-        flex-basis: 45%;
-    }
-    
     .about__imagem {
         order: 0;
         margin: 0;
     }
-
-    .perfil__foto {
-        max-width: 100%;
-    }
-}
-
-/* ---------------------------------------------------- */
-/* 9. SEÇÃO CONTATO (contact.html) - Atualizada para Lista Única */
-/* ---------------------------------------------------- */
-
-.container-contato {
-    padding: 5rem 5%;
-    max-width: 1000px;
-    margin: 0 auto;
-    min-height: calc(100vh - 5rem);
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-/* Modificador para o layout de lista única (centralizado e sem flex-direction: row no desktop) */
-.container-contato--lista-unica {
-    align-items: center;
-    text-align: center;
-}
-
-.contato__titulo {
-    font-size: 2.5rem;
-    color: var(--cor-texto);
-    margin-bottom: 0.5rem;
-    text-align: center;
-    max-width: var(--max-largura-conteudo); /* Limita a largura do título/subtítulo */
-}
-
-.contato__subtitulo {
-    font-size: 1rem;
-    color: var(--cor-secundaria);
-    margin-bottom: 2rem;
-    text-align: center;
-    max-width: var(--max-largura-conteudo);
-}
-
-/* Informações de Contato Adicionais (SECTION agora) */
-.contato-info {
-    background-color: var(--cor-card-fundo);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 550px; /* Limita a largura da caixa de links */
-}
-
-/* Título secundário (h2) escondido, mas não é o h1 */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
-
-.contato-dl {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.contato-dl__item {
-    padding: 1rem 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
-}
-
-.contato-dl__item:last-child {
-    border-bottom: none;
-}
-
-.contato-dl__chave {
-    font-weight: bold;
-    color: var(--cor-secundaria);
-    margin-bottom: 0.2rem;
-    display: flex; /* Usar flexbox para alinhar ícone e texto */
-    align-items: center;
-}
-
-.contato-dl__icone {
-    font-size: 1.2rem; /* Tamanho do ícone/emoji */
-    margin-right: 0.75rem;
-    color: var(--cor-primaria); /* Cor de destaque (opcional, se fosse um SVG) */
-}
-
-.contato-dl__valor a {
-    color: var(--cor-texto);
-    font-size: 1.1rem;
-    display: block;
-    margin-left: 2rem; /* Ajusta o alinhamento do valor */
-    text-align: left;
-}
-
-.contato-dl__valor a:hover {
-    color: var(--cor-primaria);
-}
-
-
-/* Desktop Layout - Reconfiguração */
-@media (min-width: 768px) {
     
-    .container-contato--lista-unica {
-        padding: 5rem 10%;
-    }
-    
+    /* Contato */
     .contato__titulo {
         font-size: 3.5rem;
     }
