@@ -580,6 +580,13 @@ a:hover {
     color: var(--cor-primaria);
 }
 
+.icone-svg {
+    fill: var(--cor-primaria); /* Usa a cor branca definida em :root */
+    stroke: none; /* Garante que não haja contorno extra */
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
 
 /* ==================================================== */
 /* 8. MEDIA QUERIES (Ponto de Quebra para Desktop/Tablet) */
