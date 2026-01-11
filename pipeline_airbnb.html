@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes de Projeto - Zuchinali</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/image/logoz.png">
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="https://www.linkedin.com/in/gustavo-zuchinali-b1960716a/" target="_blank" class="cabecalho__logo">Zuchinali</a>
+        <nav class="cabecalho__menu">
+            <ul class="cabecalho__lista">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="#services">Services</a></li> -->
+                <li><a href="about.html">About</a></li>
+                <!-- <li><a href="#skills">Skills</a></li> -->
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-projeto">
+        <section class="projeto-hero" role="banner">
+            <h1 class="projeto-hero__titulo">Airbnb Data Pipeline & Investment Strategy: Otimização de ROI via Dados</h1>
+            <p class="projeto-hero__subtitulo"></p>
+            
+            <img 
+                src="image/airbnb_capa.png" 
+                alt="Imagem ilustrativa" 
+                class="projeto-hero__imagem"
+            >
+        </section>
+
+        <section class="projeto-resumo">
+            <!--<h2 class="sr-only">Resumo do Projeto</h2> -->
+            
+            <dl class="projeto-metadados">
+                <div class="metadado-item">
+                    <dt class="metadado-chave">Ferramentas:</dt>
+                    <dd class="metadado-valor">Python, Pandas & NumPy, Streamlit, Parquet, Plotly & Folium, Git & Github e ETL Architecture</dd>
+                </div>
+                <div class="metadado-item">
+                    <dt class="metadado-chave">Função:</dt>
+                    <dd class="metadado-valor">?</dd>
+                </div>
+                <div class="metadado-item">
+                    <dt class="metadado-chave">Duração:</dt>
+                    <dd class="metadado-valor">? horas</dd>
+                </div>
+                <!--<div class="metadado-item">
+                    <dt class="metadado-chave">Cliente:</dt>
+                    <dd class="metadado-valor">Grande Rede de Varejo</dd>
+                </div>-->
+            </dl>
+            
+            <div class="projeto-introducao">
+                <p>Texto</p>
+            </div>
+        </section>
+
+        <section class="projeto-detalhes">
+            
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">Visão Geral</h3>
+                <p>Este projeto simula uma consultoria de investimentos imobiliários "Data-Driven". O objetivo não foi apenas visualizar dados, mas criar um produto analítico que responde à pergunta: "Onde investir capital para obter o maior retorno com o menor risco em aluguéis de curta temporada?". Através de dados públicos do Inside Airbnb, construí um pipeline que ingere, sanitiza e enriquece os dados brutos, culminando em uma ferramenta de recomendação prescritiva para investidores.
+                </p>
+            </article>
+
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">Arquitetura e Metodologiaa</h3>
+                <p>O projeto foi estruturado seguindo boas práticas de Engenharia de Software e Dados, segregando responsabilidades em módulos:</p>
+                
+                <ol class="lista-ordenada">
+                    <li>Ingestão e Processamento (ETL)
+                    <ul class="lista-nao-ordenada">
+                        <li><strong>Pipeline de Limpeza Estatística:</strong> Implementação de regras de IQR (Intervalo Interquartil) para remoção automática de outliers de preço, garantindo que imóveis de luxo extremo ou erros de cadastro não enviesem a análise de mercado.</li>
+                        <li><strong>Engenharia de Atributos (Feature Engineering):</strong>
+                        <ul class="lista-nao-ordenada">
+                            <li><strong>Cálculo de Receita Estimada:</strong> Desenvolvimento de métricas sintéticas (Ocupação x Diária) baseadas no "San Francisco Model" para estimar o ROI mensal de cada propriedade.</li>
+                            <li><strong>Valoração de Amenities:</strong> Algoritmo que processa listas de amenities não-estruturadas para isolar o impacto financeiro de itens específicos. Resultado: Identificou-se que o Ar Condicionado agrega +28.9% ao valor da diária, superando a Piscina (+16.0%).</li>
+                        </ul></li>
+                    </ul></li>
+                    <li>Armazenamento Otimizado
+                    <ul class="lista-nao-ordenada">
+                        <li>Uso de Parquet com compressão Snappy em vez de CSV para a camada processed, garantindo tipagem forte dos dados (schema enforcement) e leitura de alta performance para o frontend.</li>
+                    </ul></li>
+                    <li>Visualização e Entrega (Data App)
+                        <ul class="lista-nao-ordenada">
+                            <li>Desenvolvimento de uma aplicação web com Streamlit, permitindo que o usuário final filtre oportunidades por orçamento e visualize "Zonas de Calor de Rentabilidade" em mapas interativos.</li>
+                            <li><strong>Matriz de Oportunidade:</strong> Um gráfico de dispersão estratégico que isola bairros no quadrante "Baixo Custo / Alto Retorno".</li>
+                            <li>Vale ressaltar que também seria possível utilizar o Power BI ou Looker ao invés do Streamlit.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </article>
+
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">Resultados de Negócio (Consultoria)</h3>
+                <p>A análise automatizada identificou o micro-mercado <Strong>Waterfront Communities - The Island</Strong> como alvo ideal de investimento, apresentando uma eficiência de custo superior à média da cidade com uma quebra de receita mínima em relação ao mercado de luxo.</p>
+            </article>
+
+            <article class="detalhe-passo">
+                <h3 class="detalhe-passo__titulo">Roadmap de Engenharia (Próximos Passos)</h3>
+                <p>Este projeto é um organismo vivo. As próximas etapas focam na transição da Análise para a Engenharia de Dados Robusta:</p>
+                <ul class="lista-nao-ordenada">
+                    <li>[Pendente] Containerização: Dockerizar a aplicação e o pipeline ETL para garantir reprodutibilidade e portabilidade entre ambientes (Dev/Prod).</li>
+                    <li>[Pendente] Orquestração: Implementação de Docker Compose para gerenciar serviços e futuros bancos de dados.</li>
+                    <li>[Pendente] CI/CD: Configuração de GitHub Actions para automação de testes e build de imagens Docker a cada push.</li>
+                </ul>
+            </article>
+            
+            <div class="detalhe-conclusao">
+                <a href="https://github.com/Zuchinali/projeto-airbnb" target="_blank" class="hero__botao">Projeto no Github</a>
+            </div>
+            
+        </section>
+        
+    </main>
+    </body>
+</html>
